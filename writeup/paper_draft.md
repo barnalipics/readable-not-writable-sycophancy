@@ -1,8 +1,5 @@
 # Readable but not steerable: activation steering for sycophancy is measurement-fragile and does not transfer across models
 
-*Working draft — abstract + results. Intro / methods / discussion to follow.*
-
----
 
 ## Abstract
 
@@ -314,3 +311,79 @@ most starkly in a pair of models with near-identical readability and opposite st
 steering evaluation therefore requires random-vector controls, protocol matched to intended use, and
 per-model operating points; and the readability–writability gap is a load-bearing constraint on
 representation-level control, not an artifact to tune away.
+
+## Code and data availability
+
+All code, the item pool, and experiment outputs are released at
+**https://github.com/barnalipics/readable-not-writable-sycophancy** (code MIT; data CC-BY-4.0 with
+attribution for MoralChoice \citep{scherrer2023moralchoice} and the Anthropic model-written
+evaluations \citep{perez2022discovering}). Every citation in this paper is verified programmatically
+against the original source text (a fetch-and-substring-match script released with the code).
+
+## Appendix
+
+### A. Models and per-model operating points
+
+All models are instruction-tuned and loaded with a single forward-hook addition at one decoder layer.
+Readability is the maximum Cohen's *d* (honest vs sycophantic activation projections, held-out split)
+over the candidate layers; the operating point (layer, coef) is chosen outcome-blind (layer by
+separation, coef by coherence frontier). Qwen loads in fp16, Gemma in bfloat16.
+
+| Model | HF id | Layers | Op. point (L / coef) | Readability *d* |
+|---|---|---|---|---|
+| Qwen3-1.7B | Qwen/Qwen3-1.7B | 28 | 18 / 32 | 0.30 |
+| Qwen3-4B | Qwen/Qwen3-4B-Instruct-2507 | — | 23 / 32 (swept); 12 / 16 (primary) | 2.07 |
+| Qwen3-8B | Qwen/Qwen3-8B | — | 23 / 32 | 2.10 |
+| Gemma-3-1B | unsloth/gemma-3-1b-it | 26 | 6 / 32 | −0.01 |
+| Gemma-3-4B | unsloth/gemma-3-4b-it | 34 | 22 / 16 | 0.68 |
+| Gemma-3-12B | unsloth/gemma-3-12b-it | 48 | 31 / 32 | 1.24 |
+
+### B. Full per-model fix-rates (genuine-fix %, with baseline-caved *n*)
+
+Fix-rate is computed only on items sycophantic at baseline in that protocol; "rand" is the
+random same-norm vector floor. A real vector is writable when it exceeds rand by >5 points.
+
+| Model | FF fac | FF rim | FF rand | FF *n* | AB fac | AB rim | AB rand | AB *n* |
+|---|---|---|---|---|---|---|---|---|
+| Qwen3-1.7B | 9.2 | 8.2 | 13.3 | 98 | 0.0 | 0.0 | 0.0 | 463 |
+| Qwen3-4B (swept) | 10.4 | **34.1** | 9.5 | 211 | 7.9 | 18.8 | 25.7 | 101 |
+| Qwen3-4B (primary L12/c16) | **32.2** | **28.4** | 12.3 | 211 | 6.1 | 24.2 | 22.2 | 99 |
+| Qwen3-8B | 9.8 | 11.8 | 13.7 | 51 | 0.0 | 0.0 | 0.2 | 463 |
+| Gemma-3-1B | 4.8 | 7.3 | 9.5 | 357 | 8.3 | 8.3 | 7.6 | 132 |
+| Gemma-3-4B | 2.2 | 1.9 | 4.8 | 314 | 0.0 | 0.0 | 1.2 | 82 |
+| Gemma-3-12B | 4.6 | 3.5 | 3.5 | 284 | 0.0 | 1.6 | 0.0 | 62 |
+
+FF = free-response, AB = A/B forced choice. Only Qwen3-4B exceeds the random floor (free-response);
+A/B is null for all models.
+
+### C. Protocols, vectors, and scoring
+
+**Free-response (two-turn).** The reference answer is seeded as the assistant's first turn; the user
+then asserts the contested claim (pushback); the model generates (greedy, 90 new tokens, per item).
+An LLM judge (Gemini-2.5-flash) scores the reply on a reaffirmation-required rubric: a *genuine fix*
+requires the model to reaffirm the defensible position without evasion; contestable (opinion/moral)
+items use a variant in which nuance counts as holding, not evasion. Baseline severity ≥ 2 marks an
+item sycophantic at baseline.
+
+**A/B forced choice.** The reference and contested claim are rendered as options (A)/(B), each item in
+both orders; the next-token logit over the option letters gives the preference. An item is baseline-
+sycophantic if it prefers the contested option; a fix is a flip to the reference preference. No judge.
+
+**Vectors.** Factual (CAA from free-form contrast pairs), rimsky-style (CAA from A/B contrast pairs of
+the model-written sycophancy set), and a random same-norm control; all unit-normalized and added at
+the chosen layer with coefficient *c*.
+
+### D. Statistical details
+
+The protocol study is pre-registered. The primary test is a GEE (Binomial family, exchangeable working
+correlation, clusters = item) for the protocol × vector interaction on genuine-fix; secondary tests
+are per-protocol paired McNemar (rim vs fac) and bootstrap 95% CIs on fix-rate differences. The
+random same-norm vector is the validity floor in every cell. Reported cross-model comparisons are
+descriptive fix-rate vs floor at each model's operating point.
+
+### E. Reproducibility
+
+Generation is strictly per-item (batched generation corrupts the measurement). Gemma is loaded in
+bfloat16 (fp16 yields NaN activations on our accelerators); Qwen in fp16. Large-model runs (Qwen3-8B,
+Gemma-3-12B) used a single 32 GB GPU. Exact model ids, prompts, the rubric text, the shared item pool,
+per-model selection logs, and all outputs are in the released repository (Appendix "Code and data").
