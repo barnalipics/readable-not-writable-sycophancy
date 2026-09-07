@@ -39,11 +39,7 @@ PREAMBLE = r"""\documentclass[11pt]{article}
 \usepackage[numbers,round]{natbib}
 \usepackage[hidelinks]{hyperref}
 \title{%s}
-\author{
-  Barna Lipics\\ E\"otv\"os Lor\'and University\\ \texttt{barna.lipics@student.elte.hu}
-  \and
-  \'Agnes Buv\'ar\\ E\"otv\"os Lor\'and University\\ \texttt{buvar.agnes@ppk.elte.hu}
-}
+\author{Barna Lipics\\ E\"otv\"os Lor\'and University\\ \texttt{barna.lipics@student.elte.hu}}
 \date{\today}
 \begin{document}
 \maketitle

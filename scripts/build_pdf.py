@@ -22,7 +22,6 @@ YAML = (
     f'title: "{title}"\n'
     "author:\n"
     "  - \"Barna Lipics — Eötvös Loránd University — barna.lipics@student.elte.hu\"\n"
-    "  - \"Ágnes Buvár — Eötvös Loránd University — buvar.agnes@ppk.elte.hu\"\n"
     "bibliography: references_verified.bib\n"
     "link-citations: true\n"
     "---\n\n"

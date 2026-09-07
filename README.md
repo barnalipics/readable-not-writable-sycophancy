@@ -4,7 +4,7 @@
 
 Code and data for the paper *"Readable but not steerable: activation steering for sycophancy is
 measurement-fragile and does not transfer across models."*
-Barna Lipics and Ágnes Buvár (Eötvös Loránd University). Preprint: _arXiv link TBA_.
+Barna Lipics (Eötvös Loránd University). Preprint: _arXiv link TBA_.
 
 ---
 
@@ -90,7 +90,7 @@ redistributed — see `.gitignore`.)
 ```bibtex
 @misc{lipics2026readable,
   title  = {Readable but not steerable: activation steering for sycophancy is measurement-fragile and does not transfer across models},
-  author = {Lipics, Barna and Buv\'ar, \'Agnes},
+  author = {Lipics, Barna},
   year   = {2026},
   note   = {arXiv preprint (link TBA)}
 }
