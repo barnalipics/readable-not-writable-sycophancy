@@ -1,0 +1,142 @@
+[
+  {
+    "key": "panickssery2024caa",
+    "arxiv_id": "2312.06681",
+    "title_expect": "Steering Llama 2 via Contrastive Activation Addition",
+    "our_claim": "We use CAA, which builds a steering vector from the mean difference of contrastive activations.",
+    "quote": "we compute the difference in the language model's activations at the position of the answer letter between all the positive and negative prompts"
+  },
+  {
+    "key": "zou2023repe",
+    "arxiv_id": "2310.01405",
+    "title_expect": "Representation Engineering: A Top-Down Approach to AI Transparency",
+    "our_claim": "Representation engineering places activations, not neurons/circuits, at the center of analysis -- the frame our readability/writability work sits in.",
+    "quote": "RepE places representations, rather than neurons or circuits, at the center of analysis"
+  },
+  {
+    "key": "turner2023actadd",
+    "arxiv_id": "2308.10248",
+    "title_expect": "Steering Language Models With Activation Engineering",
+    "our_claim": "Activation engineering steers models by modifying activations at inference; CAA is one instance.",
+    "quote": "the inference-time modification of activations in order to control"
+  },
+  {
+    "key": "li2023iti",
+    "arxiv_id": "2306.03341",
+    "title_expect": "Inference-Time Intervention: Eliciting Truthful Answers from a Language Model",
+    "our_claim": "Inference-time activation interventions can shift model behavior (truthfulness); related steering method.",
+    "quote": "ITI operates by shifting model activations during inference"
+  },
+  {
+    "key": "park2023linear",
+    "arxiv_id": "2311.03658",
+    "title_expect": "The Linear Representation Hypothesis and the Geometry of Large Language Models",
+    "our_claim": "Readability = the concept is linearly encoded, per the linear representation hypothesis.",
+    "quote": "high-level concepts are represented linearly as directions in some representation space"
+  },
+  {
+    "key": "tan2024steering",
+    "arxiv_id": "2407.12404",
+    "title_expect": "Analysing the Generalisation and Reliability of Steering Vectors",
+    "our_claim": "Steering vectors have substantial in- and out-of-distribution limitations, motivating our controls.",
+    "quote": "steering vectors have substantial limitations both in- and out-of-distribution"
+  },
+  {
+    "key": "tan2024steering_variable",
+    "arxiv_id": "2407.12404",
+    "title_expect": "Analysing the Generalisation and Reliability of Steering Vectors",
+    "our_claim": "In-distribution steerability varies across inputs, consistent with our item-level and cross-model variability.",
+    "quote": "steerability is highly variable across different inputs"
+  },
+  {
+    "key": "billa2026predicting",
+    "arxiv_id": "2604.15557",
+    "title_expect": "Predicting Where Steering Vectors Succeed",
+    "our_claim": "Steering works in some settings and fails in others with no predictor; we characterize the failure across models.",
+    "quote": "Steering vectors work for some concepts and layers but fail for others, and practitioners have no way to predict which setting applies"
+  },
+  {
+    "key": "sharma2024sycophancy",
+    "arxiv_id": "2310.13548",
+    "title_expect": "Towards Understanding Sycophancy in Language Models",
+    "our_claim": "Sycophancy is associated with human-feedback finetuning.",
+    "quote": "investigate the prevalence of sycophancy in models whose finetuning used human feedback"
+  },
+  {
+    "key": "perez2022discovering",
+    "arxiv_id": "2212.09251",
+    "title_expect": "Discovering Language Model Behaviors with Model-Written Evaluations",
+    "our_claim": "The model-written sycophancy A/B evaluation; source of our held-out A/B items and rimsky-style pairs.",
+    "quote": "a dialog user's preferred answer"
+  },
+  {
+    "key": "guo2026conformity",
+    "arxiv_id": "2605.27288",
+    "title_expect": "Measuring LLM Conformity as a Function of Epistemic Uncertainty",
+    "our_claim": "Agreement under pressure partly reflects epistemic uncertainty, not only pure sycophancy.",
+    "quote": "conformity is also driven by a model's epistemic uncertainty at inference time"
+  },
+  {
+    "key": "syceval2025",
+    "arxiv_id": "2502.08177",
+    "title_expect": "SycEval: Evaluating LLM Sycophancy",
+    "our_claim": "Sycophancy has progressive (toward correct) and regressive (away from correct) forms; supports our directional severity scale.",
+    "quote": "Progressive sycophancy, leading to correct answers"
+  },
+  {
+    "key": "li2025firmfickle",
+    "arxiv_id": "2503.22353",
+    "title_expect": "Firm or Fickle? Evaluating Large Language Models Consistency in Sequential Interactions",
+    "our_claim": "Consistency under sequential pressure is a distinct axis; context for our two-turn pushback protocol.",
+    "quote": "Position-Weighted Consistency (PWC)"
+  },
+  {
+    "key": "nikeghbal2026whoflips",
+    "arxiv_id": "2606.16011",
+    "title_expect": "Who Flips? Self- and Cross-Model Counterarguments Reveal Answer Instability in LLMs",
+    "our_claim": "Answer instability under counterarguments (argument content, not just social pressure) -- a distinct, related failure mode.",
+    "quote": "how answer flips vary with argument length, attribution, source model, and subject domain across seven frontier models"
+  },
+  {
+    "key": "buchan2026dualstance",
+    "arxiv_id": "2606.11205",
+    "title_expect": "Dual-Stance Evaluation of Sycophancy",
+    "our_claim": "Our readability-vs-writability dissociation is an independent instance of the readable-not-writable gap.",
+    "quote": "representations that are readable from activations may not be writable through them"
+  },
+  {
+    "key": "devilsadvocate2026persona",
+    "arxiv_id": "2605.21006",
+    "title_expect": "Off-the-Shelf Persona Vectors Rival Targeted Steering for Sycophancy",
+    "our_claim": "Prior steering-sycophancy eval is A/B, large-model, philosophical; free-response, factual, and smaller models explicitly untested -- the gap we fill.",
+    "quote": "Free-response sycophancy, sycophantic praise, and sycophancy on factual (rather than philosophical) questions are untested"
+  },
+  {
+    "key": "zheng2023mcqselectors",
+    "arxiv_id": "2309.03882",
+    "title_expect": "Large Language Models Are Not Robust Multiple Choice Selectors",
+    "our_claim": "A/B/MCQ answers carry option-position selection bias, an instrument artifact -- supports our A/B-is-a-poor-instrument point.",
+    "quote": "they prefer to select specific option IDs as answers"
+  },
+  {
+    "key": "myrzakhan2024openllm",
+    "arxiv_id": "2406.07545",
+    "title_expect": "From Multi-choice to Open-style Questions for LLMs Evaluation",
+    "our_claim": "Moving from multiple-choice to open-style changes evaluation outcomes -- protocol/format alters the verdict, as our free-form vs A/B result shows.",
+    "quote": "shifting from MCQ to open-style questions, which can fundamentally eliminate selection bias and random guessing issues"
+  },
+  {
+    "key": "wang2025rightanswer",
+    "arxiv_id": "2503.14996",
+    "title_expect": "Right Answer, Wrong Score: Uncovering the Inconsistencies of LLM Evaluation in Multiple-Choice Question Answering",
+    "our_claim": "MCQA evaluation strategy choices produce inconsistent, misleading comparisons -- corroborates our measurement-fragility theme.",
+    "quote": "the inconsistencies of MCQA evaluation strategies, which can lead to inaccurate and misleading model comparisons"
+  },
+  {
+    "key": "scherrer2023moralchoice",
+    "arxiv_id": "2307.14324",
+    "title_expect": "Evaluating the Moral Beliefs Encoded in LLMs",
+    "our_claim": "Our moral-dilemma items are adapted from the high-ambiguity subset of MoralChoice.",
+    "quote": "high-ambiguity moral scenarios"
+  }
+]

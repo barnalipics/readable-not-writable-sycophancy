@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+
+# Secrets — never commit
+.env
+
+# Copyrighted arXiv full-texts (local citation-verify cache only; re-fetch with fetch_source.py)
+writeup/sources/
+
+# Build / large artifacts
+*.pt
+*.png
+*.parquet
+writeup/paper.html
+*.log
+*.bak*
+.cache/
+.DS_Store

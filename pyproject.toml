@@ -1,0 +1,40 @@
+[project]
+name = "sycophancy-steering-reliability"
+version = "0.1.0"
+description = "Item-level failure prediction and cross-scale/cross-architecture transfer for CAA sycophancy steering (Qwen3 -> Qwen3.5)."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "nnsight",
+    "torch",
+    "transformers",
+    "accelerate",
+    "pandas",
+    "pyarrow",
+    "scikit-learn",
+    "statsmodels",
+    "krippendorff",
+    "jsonschema",
+    "matplotlib",
+    "psutil",
+    "huggingface-hub",
+    "python-dotenv",
+    "datasets>=5.0.1",
+]
+
+[project.optional-dependencies]
+# Proprietary judge SDKs (enumerable judge roster). Install: uv sync --extra judge
+judge = ["google-genai", "anthropic", "openai"]
+# M2 only: quantized large checkpoints on Apple Silicon.
+quant = ["mlx", "mlx-lm"]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100

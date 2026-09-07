@@ -1,0 +1,13 @@
+{
+  "primary_coef": 16, "primary_layer": 12, "_status": "CORRECTED (A/B token-id fixed)",
+  "descriptive": {
+    "freeform": {"fac": {"fix": 68, "n": 211, "pct": 32.2}, "rim": {"fix": 60, "n": 211, "pct": 28.4}, "rand": {"fix": 26, "n": 211, "pct": 12.3}},
+    "ab": {"fac": {"fix": 6, "n": 99, "pct": 6.1}, "rim": {"fix": 24, "n": 99, "pct": 24.2}, "rand": {"fix": 22, "n": 99, "pct": 22.2}}
+  },
+  "mcnemar": {
+    "freeform": {"n_pairs": 211, "rim_wins": 33, "fac_wins": 41, "p": 0.416, "winner": "fac"},
+    "ab": {"n_pairs": 99, "rim_wins": 19, "fac_wins": 1, "p": 4.005e-05, "winner": "rim"}
+  },
+  "gee_interaction": {"coef": -1.943, "p": 0.0002, "n_obs": 620},
+  "H1_supported": false
+}

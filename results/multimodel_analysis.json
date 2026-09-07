@@ -1,0 +1,104 @@
+{
+  "per_model": {
+    "Qwen/Qwen3-1.7B": {
+      "freeform": {
+        "fac": {
+          "pct": 20.6,
+          "n": 291
+        },
+        "rim": {
+          "pct": 11.3,
+          "n": 291
+        },
+        "rand": {
+          "pct": 19.6,
+          "n": 291
+        }
+      },
+      "ab": {
+        "fac": {
+          "pct": 0.0,
+          "n": 1389
+        },
+        "rim": {
+          "pct": 0.0,
+          "n": 1389
+        },
+        "rand": {
+          "pct": 0.0,
+          "n": 1389
+        }
+      },
+      "pattern_holds": false
+    },
+    "unsloth/gemma-3-1b-it": {
+      "freeform": {
+        "fac": {
+          "pct": 2.6,
+          "n": 1050
+        },
+        "rim": {
+          "pct": 5.1,
+          "n": 1050
+        },
+        "rand": {
+          "pct": 1.4,
+          "n": 1050
+        }
+      },
+      "ab": {
+        "fac": {
+          "pct": 8.0,
+          "n": 411
+        },
+        "rim": {
+          "pct": 2.9,
+          "n": 411
+        },
+        "rand": {
+          "pct": 4.4,
+          "n": 411
+        }
+      },
+      "pattern_holds": false
+    },
+    "unsloth/gemma-3-4b-it": {
+      "freeform": {
+        "fac": {
+          "pct": 6.0,
+          "n": 770
+        },
+        "rim": {
+          "pct": 5.1,
+          "n": 770
+        },
+        "rand": {
+          "pct": 5.7,
+          "n": 770
+        }
+      },
+      "ab": {
+        "fac": {
+          "pct": 1.6,
+          "n": 244
+        },
+        "rim": {
+          "pct": 1.2,
+          "n": 244
+        },
+        "rand": {
+          "pct": 0.8,
+          "n": 244
+        }
+      },
+      "pattern_holds": false
+    }
+  },
+  "pattern_holds_count": "0/3",
+  "pooled_interaction": {
+    "coef": -0.243,
+    "p": 0.75943,
+    "n_obs": 8310,
+    "n_models": 3
+  }
+}
