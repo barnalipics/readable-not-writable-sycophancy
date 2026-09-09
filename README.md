@@ -8,6 +8,26 @@ Barna Lipics (Eötvös Loránd University). Preprint: _arXiv link TBA_.
 
 ---
 
+## What is this, in plain language?
+
+Language models often **cave when you push back** — you say "are you sure?", they abandon a correct
+answer to agree with you. That's *sycophancy*. A popular, cheap fix is **activation steering**: instead
+of retraining, you nudge the model's internal state toward "honest" while it answers.
+
+We asked a simple question: **does it actually work — and does the answer survive how you measure it and
+which model you try?** Mostly, no. Across six models it reliably beats a fair control in only one. And
+we found something odd and clean: **bigger models represent the honesty-vs-sycophancy distinction more
+and more clearly, yet you still can't steer with it.** The signal is *readable* but not *writable*.
+
+## 30-second glossary
+
+- **Sycophancy** — a model dropping a correct/defensible answer because the user pushed back.
+- **Activation steering (CAA)** — adding a fixed direction to the model's internal activations at inference to nudge behaviour; no retraining.
+- **Readability** — can you *detect* the honest-vs-sycophantic distinction in the activations? (measured as Cohen's *d*; higher = cleaner signal)
+- **Writability** — if you *add* that direction, does behaviour actually change?
+- **Random-vector floor** — the key control: does the real steering vector beat a random one of the same size? If not, the "effect" is noise.
+- **Free-response vs A/B** — letting the model answer in its own words vs forcing a pick between (A)/(B). Same items, *different verdicts*.
+
 ## TL;DR
 
 We test whether contrastive activation addition (CAA) really reduces sycophancy, varying **how** it is
